@@ -376,6 +376,9 @@ plotspict.diagnostic(ane6effortfit)
 
 #######################################################################################
 # CASE STUDY COMPARISON with a age based model
+library(FLCore)
+
+# Data are stored in FLCore, can just load with command data()
 
 data(ple4.index)
 data(ple4)
@@ -404,8 +407,8 @@ ple$timeC <- seq(1957, 2008)   # time of catch observations
 
 ## weight at age index
 Iwa <- catch.n(ple4.index) * trim(stock.wt(ple4),
-                                  year = dimnames(ple4.index@catch.n)$year,
-                                  age = dimnames(ple4.index@catch.n)$age)
+        year = dimnames(ple4.index@catch.n)$year,
+        age = dimnames(ple4.index@catch.n)$age)
 
 ## sum the index
 as.vector(quantSums(Iwa))
@@ -422,8 +425,7 @@ ple
 # Lets have a look
 x11()
 plotspict.data(ple)
-x11()
-plot(ple4)
+
 
 #Plot inital guesses on the model initial values
 
@@ -437,7 +439,9 @@ capture.output(summary(plefit))[1:4]
 
 plot(plefit)
 
+# How does the SPICT assessment compare to the age based stock assessment for Plaice?
 
+# let's have a look
 #--------------------------------------------------------------------------------------------------------------------
 # HOW TO RUN A CATCH FORECAST IN SPICT
 
