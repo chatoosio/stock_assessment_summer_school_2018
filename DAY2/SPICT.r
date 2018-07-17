@@ -289,11 +289,13 @@ plotspict.tc(nep1718fit)
 plotspict.biomass(nep1718fit)
 plotspict.catch(nep1718fit)
 plotspict.fb(nep1718fit)
+
 summary(nep1718fit)
 capture.output(summary(nep1718fit))
 
 
 # So the model fits quite well, diagnostics are good, we can have a look at the final results.
+
 # Fit Summary
 summary(nep1718fit)
 
@@ -309,50 +311,6 @@ plotspict.tc(nep1718fit)
 x11()
 plotspict.ffmsy(nep1718fit, qlegend=FALSE)
 
-# Check the timing of when MEDITS survey was performed. 
-# MEDITS survey was in month 5-8 aside 2007 and 2014 (month 9-12)
-# Since the model needs to account for growth, the weight of the fish in the survey needs to be acounted for
-# Add to the year the fraction of the month e.g. 6.5/12 = 0.54 and 10.5/12 = 0.0875
-nep1718$timeI
-nep1718$timeI[[3]][1:13] <- nep1718$timeI[[3]][1:13] + 0.54
-nep1718$timeI[[3]][15:20] <- nep1718$timeI[[3]][15:20] + 0.54
-nep1718$timeI[[3]][22:23] <- nep1718$timeI[[3]][22:23] + 0.54
-nep1718$timeI[[3]][14] <- nep1718$timeI[[3]][14] + 0.875
-nep1718$timeI[[3]][21] <- nep1718$timeI[[3]][21] + 0.875
-nep1718$eulertype = "soft"
-
-# how does it look? 
-plotspict.data(nep1718)
-
-
-nep1718fitTA <- fit.spict(nep1718)
-
-
-# Explore convergence
-capture.output(summary(nep1718fitTA))[1:4]
-
-#Check list:
-#  - did it converge?
-#  - how is it fitting?
-
-# Let's have a look at the Diagnostics First
-
-nep1718fitTA_diagn <- calc.osa.resid(nep1718fitTA)
-
-plotspict.diagnostic(nep1718fitTA_diagn)
-
-
-# Diagnostics, run it by taking away the last 4 years, one at a time
-nep1718fitTA_retro <- retro(nep1718fitTA, nretroyear = 4)
-plotspict.retro(nep1718fitTA_retro)
-
-
-# Fit Summary
-summary(nep1718fitTA)
-
-x11()
-plot(nep1718fitTA)
-# So what do you think, is this a better fit than the previous one?
 
 
 ############################################################################################################################
@@ -360,8 +318,9 @@ plot(nep1718fitTA)
 
 
 
+
 ####################################################################
-# Exercize 1
+# Exercize 2
 # Production models can take also time series of effort, but many caveats should be made when using fishing effort! 
 
 # Run the model with also effort
@@ -377,9 +336,9 @@ ane6effort$timeE <- ane$year[59:71]
 
 # 2) Is it converging? 
 
-# 3) Hhow are the diagnostics? 
+# 3) How are the diagnostics? 
 
-# 4) Is the fit better?
+# 4) Is the fit better with effort or with the biomass index from acoustic surveys?
 
 
 ########################################################################################
