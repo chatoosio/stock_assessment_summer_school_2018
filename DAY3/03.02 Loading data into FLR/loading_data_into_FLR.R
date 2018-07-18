@@ -87,6 +87,7 @@ catch.wt.flq <- FLQuant(catch.wt.matrix, dimnames=list(age=0:6, year = 2006:2014
 
 # create an FLStock
 hke.stk <- FLStock(catch.n = catch.n.flq, catch.wt = catch.wt.flq)
+units(harvest(hke.stk)) <- "f"
 
 
 plot(hke.stk)
@@ -228,3 +229,4 @@ her <- setPlusGroup(her,plusgroup=7)
 # readFLIndices() - read several abundance indices
 # readMFCL() - for Multifan-CL
 # readADMB() - for ADMB
+
