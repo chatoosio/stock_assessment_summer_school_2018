@@ -34,15 +34,18 @@ plot(hke)
 
 # catch =~ landings + discards, in case discards had already been included in landings,
 # so are 0 here. Normally discards should be reported in the discard quant
+units(landings(hke)) <- units(discards(hke)) <- "t"
+units(landings.n(hke)) <- units(discards.n(hke)) <- "1000"
+units(landings.wt(hke)) <- units(discards.wt(hke)) <- "kg"
+
 landings(hke) + discards(hke)
 catch(hke)
-
 catch(hke) <- landings(hke) + discards(hke)
 
 landings.n(hke) + discards.n(hke)
 catch.n(hke)
-
 catch.n(hke) <- landings.n(hke) + discards.n(hke)
+
 landings.n(hke)[,"2006",,,,]
 catch.n(hke)[,"2006",,,,]
 
@@ -86,7 +89,7 @@ stock.wt(hke)/catch.wt(hke)
 
 # harvest e.g. fishing mortality or harvest rate, normally defined as F
 harvest(hke)
-d\\11111xyplot(data~age,groups=year,data=harvest(hke),type=c("l","p"))
+xyplot(data~age,groups=year,data=harvest(hke),type=c("l","p"))
 
 # Size of the estimated population at sea, in terms of total biomass,total numbers at age.
 stock.n(hke)
@@ -149,17 +152,9 @@ plot(stock(hke))
 plot(stock.n(hke))
 plot(landings(hke))
 
-
 # METHODS convert to data frame
 # entire FlStock
 temp<-as.data.frame(hke)
 summary(temp)
 # or only some slots
 head(as.data.frame(FLQuants(catch.n=catch.n(hke), stock.n=stock.n(hke))))
-
-
-
-
-
-
-# flq <- FLQuant(rlnorm(60), dimnames=list(age=1:4, year=2012:2017), units="t")
