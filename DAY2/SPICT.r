@@ -439,6 +439,17 @@ capture.output(summary(plefit))[1:4]
 
 plot(plefit)
 
+ane6effortt_diagn <- calc.osa.resid(plefit)
+
+plotspict.diagnostic(ane6effortt_diagn)
+
+# Diagnostics, run it by taking away the last 4 years, one at a time
+ane6fit_retroEFF <- retro(plefit, nretroyear = 4)
+
+# now plot it!
+plotspict.retro(ane6fit_retroEFF)
+
+
 # How does the SPICT assessment compare to the age based stock assessment for Plaice?
 
 # let's have a look
