@@ -1,1 +1,1 @@
-# stock_assessment_summer_school_2018
+Course Material for the Stock Assessment Summer School Module II held in July 2018 in CNR Capo Granitola and Co-orgainzed by FAO regional programs, GFCM and EC JRC. Course Trainers: Chato Osio, Coilin Minto, Alessandro Ligas, Alessandro Mannini and Alessandro Orio.
