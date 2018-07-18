@@ -67,6 +67,7 @@ class(catch.n)
 # Instead we can convert the object to a matrix
 catch.n.matrix <- as.matrix(catch.n[1:7, -1])
 catch.n.matrix
+
 # We need to specify the dimnames
 catch.n.flq <- FLQuant(catch.n.matrix, dimnames=list(age=0:6, year = 2006:2014))
 catch.n.flq
@@ -141,6 +142,7 @@ catch.n_idx <- read.csv("hke_9_10_11_idx.csv", header = TRUE, row.names = 1)
 catch.n_idx.matrix <- as.matrix(catch.n_idx[1:6, ])
 
 hke.idx <- FLQuant(catch.n_idx.matrix, dimnames=list(age=0:5, year = 2006:2014))
+
 hke.idx <- FLIndex(catch.n = hke.idx)
 hke.idx <- FLIndices(hke.idx)
 
@@ -171,6 +173,10 @@ hke.idx[[1]]@range[c('startf', 'endf')] <- c(0.66,0.75)
 catch.n <- readVPAFile("data/her-irlw/canum.txt")
 # Gives you an FLQuant 
 catch.n
+
+# Other way to load your data, if you already have an FLStock saved as .RData, you can load it directly in your R workspace by using the command load()
+
+load("HKE_09_10_11_stk.Rdata")
 
 
 # readFLStock()
