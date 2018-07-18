@@ -198,7 +198,7 @@ plot(HKE.idx[[3]], type="internal",main="Cohorts consistence in the MEDITS SA9 s
 #### The FLXSA control object ####
 ##################################
 
-# The FLXSA.control object contains all of the user defined model settings for running an XSA analysis. It can be created in several different ways. 
+# The FLXSA.control object contains the user defined model settings for running an XSA analysis. It can be created in several different ways. 
 # The simplest method is to accept all of the default settings by calling the FLXSA.control function without any extra arguments:
 
 FLXSA.control()
