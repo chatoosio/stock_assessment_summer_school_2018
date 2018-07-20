@@ -30,7 +30,7 @@ summary(hkebrp)
 catch.sel(hkebrp) 
 # discards.sel(hkebrp)  
 
-ggplot(catch.sel(hkebrp), aes( age, data))+geom_point()
+# ggplot(catch.sel(hkebrp), aes( age, data))+geom_point()
 # ggplot(discards.sel(hkebrp), aes( age, data))+geom_point() 
 
 
