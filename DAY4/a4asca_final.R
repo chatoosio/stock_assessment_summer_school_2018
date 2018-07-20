@@ -274,7 +274,8 @@ BIC(fit, fit1, fit2, fit3, fit4)
 #--------------------------------------------------------------------
 # Exercise 01
 #--------------------------------------------------------------------
-# 1.1) fit a linear F model with a quadratic term at age, using in the fmodel a command like fmodel <- ~ age + I(age^2) + factor(year)
+# 1.1) fit a linear F model with a quadratic term at age, using in the fmodel a command like 
+fmodel <- ~ age + I(age^2) + factor(year)
 
 #  - is it improving the fit? What do the diagnostic support?
 
@@ -425,6 +426,7 @@ BIC(fit, fit1, fit2, fit3, fit4, fit5, fit6, fit7, fit8)
 # If you are not happy with the results, what would you do to improve the assessment?
 
 # 1) Try to change the plusgroup it look like the internal consistency of the cohorts is bad with more than age 4. We are going to use only trawl survey (trim LLS)
+
 hkeplus <- setPlusGroup(hke, 4)
 hke.idxplus <- hke.idx[c(1,3:4)]
 hke.idxplus[[1]] <- FLIndex(index=setPlusGroup(index(hke.idxplus[[1]]), 4))
@@ -479,6 +481,8 @@ BIC(fitTRIM)
 
 plot(fitTRIM)
 
+
+##################################################################
 # stock-recruitment submodel
 fmodel <- ~ s(age, k=4) + s(year, k = 5)
 qmodel <- list(~ s(age, k=4))
@@ -513,6 +517,7 @@ flqs <- FLQuants(fac=stock.n(fit11)[1], bh=stock.n(fit14)[1])
 xyplot(data~year, groups=qname, data=flqs, type="l", main="Recruitment models",auto.key=T)
 
 plot(FLQuants(fac=stock.n(fit11)[1], bh=stock.n(fit14)[1]))
+
 
 #====================================================================
 # Predict and simulate
