@@ -6,7 +6,7 @@
 
 # devtools::install_github("flr/FLBRP")
 # load the library
-library(FLBRP) 
+# library(FLBRP) 
 library(FLRP)
 # Load the stock object 
 # we are going to use one of the stock objects from the HKE_09_10_11 stock assessment
